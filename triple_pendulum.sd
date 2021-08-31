@@ -1,0 +1,33 @@
+#  File:  triple_pendulum.sd
+#
+#
+#
+# sdfast -lc -ge -p sd triple_pendulum.sd triple_pendulum 
+# sdfast <lc, generate c files> <ge, generate everything> ....
+# <-p tp_pend, name of lib file> <tp_pend.sd name of sd file> ...
+# <tp_pend, basename for _i, _s, _d files> 
+
+language = c
+gravity = 0? -9.8? 0?
+
+body = body1  inb = $ground  joint = pin
+  mass = 10?
+  inertia = 0?  0?  0?
+  bodytojoint = -0.5? 0? 0?
+  pin = 0 0 1
+
+body = body2  inb = body1  joint = pin
+  mass = 5?
+  inertia = 0?  0?  0?
+  inbtojoint = 0.5?  0?  0?
+  bodytojoint = -0.5?  0? 0?
+  pin = 0 0 1
+
+body = body3  inb = body2  joint = pin
+  mass = 2?
+  inertia = 0?  0?  0?
+  inbtojoint = 0.5? 0? 0?
+  bodytojoint = -0.25?  0? 0?
+  pin = 0 0 1
+
+
